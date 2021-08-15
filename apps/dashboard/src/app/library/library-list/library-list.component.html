@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Library</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let book of books" (click)="selected.emit(book)">
+        <h3 matLine>{{ book.title }}</h3>
+        <p matLine>{{ book.author }}</p>
+
+        <button
+          mat-icon-button
+          (click)="deleted.emit(book); $event.stopImmediatePropagation()"
+        >
+          <mat-icon *ngIf="!readonly">delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

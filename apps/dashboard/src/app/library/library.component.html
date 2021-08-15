@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <library-library-list
+      [books]="allBooks$ | async"
+      (selected)="selectBook($event)"
+      (deleted)="deleteBook($event)"
+    ></library-library-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <library-library-details
+      [book]="selectedBook$ | async"
+      (saved)="saveBook($event)"
+      (cancelled)="cancel()"
+      [form]="form"
+    ></library-library-details>
+  </div>
+</div>
